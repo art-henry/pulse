@@ -1,0 +1,6 @@
+@import "base/variables";
+@media (max-width: $large-screen) {
+  .promo {
+    background: url(../img/bg1_1024.jpg) center center/cover no-repeat;
+  }
+}

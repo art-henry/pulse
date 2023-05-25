@@ -1,0 +1,18 @@
+@import "base/variables";
+@import "adaptive_styles.scss";
+
+* {
+  font-family: "Museo Sans", sans-serif;
+  font-weight: 500;
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+@import "blocks/promo";
+@import "blocks/header";
+@import "blocks/buttons";
+@import "blocks/advantage";
+@import "blocks/title";
