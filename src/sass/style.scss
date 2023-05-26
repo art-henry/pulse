@@ -1,5 +1,4 @@
 @import "base/variables";
-@import "adaptive_styles.scss";
 
 * {
   font-family: "Museo Sans", sans-serif;
@@ -16,3 +15,5 @@
 @import "blocks/buttons";
 @import "blocks/advantage";
 @import "blocks/title";
+
+@import "adaptive_styles.scss";

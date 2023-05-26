@@ -1,6 +1,68 @@
 @import "base/variables";
 @media (max-width: $large-screen) {
+  .container {
+    max-width: 700px;
+  }
   .promo {
     background: url(../img/bg1_1024.jpg) center center/cover no-repeat;
+    .header {
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
+  .advantage {
+    background-color: #f6f6f6;
+    &_wrapper {
+      padding: 65px 0 55px;
+    }
+    &_list {
+      margin-top: 50px;
+    }
+    &_col {
+      &_title {
+        margin-top: 25px;
+      }
+      &_text {
+        margin-top: 15px;
+      }
+    }
+    &_col + &_col {
+      margin-left: 35px;
+    }
+  }
+}
+@media (max-width: $medium-screen) {
+  .header {
+    flex-wrap: wrap;
+    &__logo {
+      width: 50%;
+    }
+    &__official {
+      width: 45%;
+      text-align: right;
+    }
+    &__contact {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  .promo {
+    &__wrapper {
+      padding: 70px 15px 70px;
+    }
+  }
+
+  .advantage {
+    &_list {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &_col {
+      width: 90%;
+    }
+    &_col + &_col {
+      margin-left: 0;
+      margin-top: 30px;
+    }
   }
 }
