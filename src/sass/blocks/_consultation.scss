@@ -1,0 +1,9 @@
+.consultation {
+  background: url(../img/bg2.jpg) center center/cover no-repeat;
+  color: #fff;
+  padding: 100px 0 100px;
+  &__descr {
+    font-size: 20px;
+    margin-top: 8px;
+  }
+}

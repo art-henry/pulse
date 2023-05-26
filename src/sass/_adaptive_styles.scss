@@ -66,3 +66,83 @@
     }
   }
 }
+
+@media (max-width: $medium-screen) {
+  .header {
+    flex-wrap: wrap;
+    &__logo {
+      width: 50%;
+    }
+    &__official {
+      width: 45%;
+      text-align: right;
+    }
+    &__contact {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  .promo {
+    &__wrapper {
+      padding: 70px 15px 70px;
+    }
+  }
+  .consultation {
+    padding: 80px 15px 80px;
+    &__descr {
+      font-size: 16px;
+    }
+  }
+
+  .title {
+    &_big {
+      font-size: 26px;
+    }
+  }
+}
+
+@media (max-width: $small-screen) {
+  .header {
+    &__logo {
+      width: 90%;
+    }
+    &__official {
+      display: none;
+    }
+  }
+
+  .promo {
+    &__header {
+      font-size: 30px;
+    }
+    &__subheader {
+      font-size: 16px;
+    }
+    &__icons {
+      align-items: end;
+      justify-content: center;
+    }
+    &__icon {
+      margin-left: 0;
+      padding: 0 10px;
+      span {
+        font-size: 10px;
+        max-width: 90px;
+      }
+    }
+  }
+
+  .button {
+    &_big {
+      width: 100%;
+    }
+  }
+
+  .feed_form {
+    align-items: center;
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+}
