@@ -4,18 +4,25 @@
     width: 750px;
     margin: 0 auto;
   }
-  .slick-prev,
-  .slick-next {
+  .prev,
+  .next {
     border: none;
     background: none;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
-  .slick-prev {
+  .prev {
     left: -66px;
   }
-  .slick-next {
+  .next {
     right: -66px;
+  }
+
+  .tns-item {
+    img {
+      display: block;
+      margin: 0 auto;
+    }
   }
 }
