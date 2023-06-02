@@ -22,8 +22,13 @@ const slider = tns({
   container: ".carousel__inner",
   items: 1,
   slideBy: "page",
-  nav: false,
+  nav: true,
   controls: false,
+  responsive: {
+    768: {
+      nav: false,
+    },
+  },
 });
 
 document.querySelector(".prev").addEventListener("click", function () {
