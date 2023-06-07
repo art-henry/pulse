@@ -1,0 +1,32 @@
+.footer {
+  height: 630px;
+  text-align: center;
+  position: relative;
+  font-size: 20px;
+  &__info {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 50px;
+    display: flex;
+    background-color: $red;
+    color: #fff;
+    flex-direction: column;
+  }
+  &__address {
+    margin-bottom: 0;
+  }
+  &__phone {
+    margin-top: 35px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+  }
+  &__social {
+    margin-top: 35px;
+    a + a {
+      margin-left: 30px;
+    }
+  }
+}

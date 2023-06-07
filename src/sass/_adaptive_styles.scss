@@ -44,6 +44,12 @@
       flex-basis: calc(50% - 20px);
     }
   }
+  .footer {
+    &__info {
+      padding: 35px;
+      font-size: 15px;
+    }
+  }
 }
 @media (max-width: $medium-screen) {
   .title {
@@ -124,6 +130,38 @@
     }
     &__content {
       flex-basis: 100%;
+    }
+  }
+
+  .reviews {
+    padding: 0 20px;
+    &__info {
+      margin-left: 0;
+      margin-top: 20px;
+    }
+    &__user {
+      flex-direction: column;
+    }
+  }
+  .footer {
+    &__info {
+      padding: 35px 15px;
+      left: 100%;
+      transform: translateX(-100%);
+      opacity: 0.7;
+    }
+    &__phone {
+      margin-top: 20px;
+    }
+    &__social {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      align-items: center;
+      a + a {
+        margin-left: 0;
+        margin-top: 15px;
+      }
     }
   }
 }
