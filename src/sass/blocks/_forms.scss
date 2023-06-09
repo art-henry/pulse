@@ -12,12 +12,13 @@
     font-family: MuseoModerno;
     color: $light-grey;
   }
+  input:not(:first-child) {
+    margin-top: 15px;
+  }
   input::placeholder {
     color: $light-grey;
   }
-  input + input {
-    margin-top: 15px;
-  }
+
   .button {
     margin-top: 20px;
   }

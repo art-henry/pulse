@@ -116,6 +116,36 @@ document.addEventListener("DOMContentLoaded", function () {
       $(".overlay, #order").fadeIn();
     });
   });
+
+  function validateForm(form) {
+    $(form).validate({
+      rules: {
+        name: "required",
+        phone: "required",
+        email: {
+          required: true,
+          email: true,
+        },
+      },
+      messages: {
+        name: "Please specify your name",
+        phone: {
+          required: "We need your email address to contact you",
+          email: "Your phone address must be in the format of 380xx0000000",
+        },
+        email: {
+          required: "We need your email address to contact you",
+          email: "Your email address must be in the format of name@domain.com",
+        },
+      },
+    });
+  }
+  validateForm("#consultation form");
+  validateForm("#order form");
+  validateForm("#consultation-form");
+
+  $("input[name=phone]").mask("+38 (999) 999-99-99");
+
   // const buttons = document.querySelectorAll('[data-modal="consultation"]');
   // const orderButtons = document.querySelectorAll('[data-modal="order"]');
   // const modal = document.querySelector("#consultation");
