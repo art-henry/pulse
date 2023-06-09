@@ -18,29 +18,31 @@
 //   });
 // });
 
-const slider = tns({
-  container: ".carousel__inner",
-  items: 1,
-  slideBy: "page",
-  nav: true,
-  controls: false,
-  responsive: {
-    768: {
-      nav: false,
-    },
-  },
-});
-
-document.querySelector(".prev").addEventListener("click", function () {
-  slider.goTo("prev");
-});
-
-document.querySelector(".next").addEventListener("click", function () {
-  slider.goTo("next");
-});
-
-// Tabs
 document.addEventListener("DOMContentLoaded", function () {
+  // Slider
+
+  const slider = tns({
+    container: ".carousel__inner",
+    items: 1,
+    slideBy: "page",
+    nav: true,
+    controls: false,
+    responsive: {
+      768: {
+        nav: false,
+      },
+    },
+  });
+
+  document.querySelector(".prev").addEventListener("click", function () {
+    slider.goTo("prev");
+  });
+
+  document.querySelector(".next").addEventListener("click", function () {
+    slider.goTo("next");
+  });
+
+  // Tabs
   var tabs = document.querySelectorAll(".catalog__tab");
   var tabContents = document.querySelectorAll(".catalog__contents");
 
@@ -72,27 +74,90 @@ document.addEventListener("DOMContentLoaded", function () {
   tabs[0].classList.add("catalog__tab_active");
   // tabContents[0].style.display = 'flex';
   tabContents[0].classList.add("catalog__contents_active");
+
+  // Toggle
+
+  var links = document.querySelectorAll(".catalog-item__link");
+
+  function toggleClasses(event) {
+    event.preventDefault(); // Предотвращаем переход по ссылке
+
+    var link = event.target;
+    var listWrapper = link
+      .closest(".catalog-item__wrapper")
+      .querySelector(".catalog-item__list__wrapper");
+    var contentWrapper = link
+      .closest(".catalog-item__wrapper")
+      .querySelector(".catalog-item__content__wrapper");
+
+    listWrapper.classList.toggle("catalog-item__list__wrapper_active");
+    contentWrapper.classList.toggle("catalog-item__content__wrapper_active");
+  }
+
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener("click", toggleClasses);
+  }
+
+  //Modal
+
+  $("[data-modal=consultation]").on("click", function () {
+    $(".overlay, #consultation").fadeIn();
+  });
+  $(".modal__close, .overlay").on("click", function (event) {
+    $(".overlay, #consultation, #thanks, #order").fadeOut();
+  });
+  $("#consultation, #thanks, #order").on("click", function (event) {
+    event.stopPropagation();
+  });
+
+  $("[data-modal=order]").each(function (i) {
+    $(this).on("click", function () {
+      $("#order .modal__descr").text($(".catalog-item__subtitle").eq(i).text());
+      $(".overlay, #order").fadeIn();
+    });
+  });
+  // const buttons = document.querySelectorAll('[data-modal="consultation"]');
+  // const orderButtons = document.querySelectorAll('[data-modal="order"]');
+  // const modal = document.querySelector("#consultation");
+  // const orderModal = document.querySelector("#order");
+  // const overlay = document.querySelector(".overlay");
+
+  // // Функция для открытия модального окна
+  // function openModal() {
+  //   modal.style.display = "block";
+  //   overlay.style.display = "block";
+  // }
+
+  // function openOrderModal() {
+  //   orderModal.style.display = "block";
+  //   overlay.style.display = "block";
+  // }
+
+  // // Функция для закрытия модального окна
+  // function closeModal() {
+  //   modal.style.display = "none";
+  //   overlay.style.display = "none";
+  //   orderModal.style.display = "none";
+  // }
+
+  // // Назначаем обработчик события клика на каждую кнопку
+  // buttons.forEach(function (button) {
+  //   button.addEventListener("click", openModal);
+  // });
+  // orderButtons.forEach(function (button) {
+  //   button.addEventListener("click", openOrderModal);
+  // });
+
+  // // Назначаем обработчик события клика на оверлей для закрытия модального окна
+  // overlay.addEventListener("click", function (event) {
+  //   if (event.target === overlay) {
+  //     closeModal();
+  //   }
+  // });
+
+  // // Назначаем обработчик события клика на кнопку закрытия модального окна
+  // const closeButton = modal.querySelector(".modal__close");
+  // const orderCloseButton = orderModal.querySelector(".modal__close");
+  // closeButton.addEventListener("click", closeModal);
+  // orderCloseButton.addEventListener("click", closeModal);
 });
-
-// Toggle
-
-var links = document.querySelectorAll(".catalog-item__link");
-
-function toggleClasses(event) {
-  event.preventDefault(); // Предотвращаем переход по ссылке
-
-  var link = event.target;
-  var listWrapper = link
-    .closest(".catalog-item__wrapper")
-    .querySelector(".catalog-item__list__wrapper");
-  var contentWrapper = link
-    .closest(".catalog-item__wrapper")
-    .querySelector(".catalog-item__content__wrapper");
-
-  listWrapper.classList.toggle("catalog-item__list__wrapper_active");
-  contentWrapper.classList.toggle("catalog-item__content__wrapper_active");
-}
-
-for (var i = 0; i < links.length; i++) {
-  links[i].addEventListener("click", toggleClasses);
-}

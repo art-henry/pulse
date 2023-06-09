@@ -226,4 +226,19 @@
       margin-left: 0;
     }
   }
+  .modal {
+    padding: 30px 20px;
+    width: 90%;
+    &__close {
+      top: 4px;
+      right: 6px;
+    }
+    &__subtitle,
+    &__descr {
+      font-size: 15px;
+    }
+    &__descr {
+      font-size: 11px;
+    }
+  }
 }
