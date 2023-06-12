@@ -144,7 +144,35 @@ document.addEventListener("DOMContentLoaded", function () {
   validateForm("#order form");
   validateForm("#consultation-form");
 
-  $("input[name=phone]").mask("+38 (999) 999-99-99");
+  $("input[name=phone]").mask("+380 (99) 999-99-99");
+
+  // sent mail
+
+  $("form").submit(function (e) {
+    e.preventDefault();
+    if (!$(this).valid()) return;
+    $.ajax({
+      type: "POST",
+      url: "mailer/smart.php",
+      data: $(this).serialize(),
+    }).done(function () {
+      $(this).find("input").val("");
+      $("#consultation, #order").fadeOut();
+      $(".overlay, #thanks").fadeIn("slow");
+      $("form").trigger("reset");
+    });
+    return false;
+  });
+
+  // Smoothe scroll
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 1600) {
+      $(".pageup").fadeIn();
+    } else {
+      $(".pageup").fadeOut();
+    }
+  });
 
   // const buttons = document.querySelectorAll('[data-modal="consultation"]');
   // const orderButtons = document.querySelectorAll('[data-modal="order"]');
