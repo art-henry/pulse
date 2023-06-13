@@ -174,6 +174,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Animated
+
+  new WOW().init();
+
   // const buttons = document.querySelectorAll('[data-modal="consultation"]');
   // const orderButtons = document.querySelectorAll('[data-modal="order"]');
   // const modal = document.querySelector("#consultation");

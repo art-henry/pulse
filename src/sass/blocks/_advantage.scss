@@ -11,6 +11,14 @@
   }
   &_col {
     width: 285px;
+    &_icon {
+      &_animated {
+        animation: heartbeat 1.5s ease infinite;
+        &:hover {
+          animation-play-state: paused;
+        }
+      }
+    }
     &_title {
       font-size: 18px;
       font-weight: 700;
